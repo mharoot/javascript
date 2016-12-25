@@ -1,12 +1,7 @@
 /*
-name: OptionsElementCreator.js
-purpose: to create an option element and append to the end.
+Module name: OptionsElementCreator.js
+Purpose:  Appending Option Element to a given Select Element by it's id.
 */
-
-/*      Includes    */
-// $.getScript("https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js", function(){
-//    alert("Script loaded but not necessarily executed.");
-// });
 
 function OptionElementCreator(parentID,optionName) 
 {
@@ -30,37 +25,6 @@ function OptionElementCreator(parentID,optionName)
       option.appendChild(node);
       var element = document.getElementById(parentID);
       element.appendChild(option);
-
-      /** If It is a tag that is being added do the appropriate ajax call to add the new tag */
-      if(this.parentID ==='tag') {
-        var post_data = 'tag='+this.optionName; 
-        //ajax handler
-        jQuery.ajax({
-        type: "POST",
-        url: "ajax_calls/AddOption.php", 
-        dataType:"text",
-        data:post_data,
-        success:function(response){
-        },
-        error:function (xhr, ajaxOptions, thrownError){
-          alert("ERROR");
-        }
-        });
-      } else if (this.parentID === 'pornstar')
-      {
-         var post_data = 'pornstar='+this.optionName; 
-        //ajax handler
-        jQuery.ajax({
-        type: "POST",
-        url: "ajax_calls/AddOption.php", 
-        dataType:"text",
-        data:post_data,
-        success:function(response){
-        },error:function (xhr, ajaxOptions, thrownError){
-          alert("ERROR");
-        }
-        });
-      }
         
     }
 
