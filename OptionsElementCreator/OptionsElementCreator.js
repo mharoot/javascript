@@ -1,32 +1,43 @@
 /*
 Module name: OptionsElementCreator.js
-Purpose:  Appending Option Element to a given Select Element by it's id.
+Purpose:  Appending Option Element to a given Select Element by it's ID.
 */
 
-function OptionElementCreator(parentID,optionName) 
-{
-    /*  field variables                     */
-    this.optionName = optionName;
-    this.parentID   = parentID;
-
-
-    /*  this method creates an option element child and appends it to the end of its parent  */
-    this.createOptionElement = function createAnOption() 
-    {
-              
-      if(this.optionName ==='')
-      {
-        alert("You have not submitted a tag name...");
-        return false;
-      }
-      
-      var option = document.createElement("option");
-      var node = document.createTextNode(this.optionName);
-      option.appendChild(node);
-      var element = document.getElementById(parentID);
-      element.appendChild(option);
-        
+function OptionElementCreator(selectElementID, optionText) {
+  this.selectElement     = document.getElementById(selectElementID);
+  this.option            = document.createElement("option");
+  this.text              = document.createTextNode(optionText);
+  this.option.appendChild(this.text);
+   
+  this.insertLast = function () {                    // append option to the end
+    this.validate();
+    this.selectElement.appendChild(option);
+  }
+  
+  this.insertFirst = function () {                   // append option to  start
+    this.validate();
+    this.selectElement.insertBefore(this.option, this.selectElement.childNodes[0]); 
+  }
+  
+  this.insertBefore = function ( specifiedOption ) { // append option before a specified option by name.
+    this.validate();
+    for(var i = 0; i < this.selectElement.length; i++) {
+        if(this.selectElement.childNodes[i] === specifiedOption) {
+          this.selectElement.insertBefore(this.option, this.selectElement.childNodes[i]);
+          return 0;
+        }
     }
-
+    
+    this.insertLast(); // if not found append as usual.
+  }
+  
+  this.validate = function () {                     // check to see if an option text is provided.
+    if(this.optionText ==='')
+    {
+      console.log("optionText null");
+      return false;
+    } 
+  }
+  
 
 }
