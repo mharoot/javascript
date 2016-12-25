@@ -3,7 +3,7 @@ Module name: OptionsElementCreator.js
 Purpose:  Appending Option Element to a given Select Element by it's ID.
 */
 
-function OptionElementCreator(selectElementID, optionText) {
+function OptionsElementCreator(selectElementID, optionText) {
   this.selectElement     = document.getElementById(selectElementID);
   this.option            = document.createElement("option");
   this.text              = document.createTextNode(optionText);
