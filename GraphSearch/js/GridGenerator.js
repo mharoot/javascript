@@ -2,6 +2,7 @@
 name: GridGenerator.js
 purpose: TO demonstrate graph search algorithms.
 Code Convention: http://javascript.crockford.com/code.html
+Programmer: Michael Harootoonyan
 */
 
 function Graph() {
