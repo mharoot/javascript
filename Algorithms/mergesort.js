@@ -1,8 +1,5 @@
 
 var a = [1,20,12,3,4,5,9, 16, 8, 100,13,14,6,5,4,100,19,18];
-
-//var a = [2,4,5,3,4,5,9]
-
 function merge (A, p, q, r) {
     var n1 = q - p + 1;
     var n2 = r - q;
@@ -14,7 +11,7 @@ function merge (A, p, q, r) {
     R[n2] = 1.7976931348623157E+10308;
 
     for (var i = 0; i < n1; i++) {
-        L[i] = A[p+i];//A[p+i-1];
+        L[i] = A[p+i];
     }
 
     for (var j = 0; j < n2; j++) {
@@ -46,5 +43,4 @@ function mergesort (A, p, r) {
 
 console.log(a);
 mergesort(a, 0, a.length-1);
-//merge(a,0,3,a.length);
 console.log(a);
