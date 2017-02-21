@@ -11,11 +11,11 @@ function merge (A, p, q, r) {
     R[n2] = 1.7976931348623157E+10308;
 
     for (var i = 0; i < n1; i++) {
-        L[i] = A[p+i];
+        L[i] = A[p+i]; //  mergesort (A, p, q); note : p
     }
 
     for (var j = 0; j < n2; j++) {
-        R[j] = A[q+j+1];
+        R[j] = A[q+1+j]; // mergesort (A, q+1, r); note : q+1
     }
 
     var i = 0;
