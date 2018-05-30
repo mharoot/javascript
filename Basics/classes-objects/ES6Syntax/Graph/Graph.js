@@ -25,7 +25,7 @@ class Graph {
 
   print(s) {  // A quick and dirty way to display output.
     s = s || 'empty';
-    // document.getElementById('display').innerHTML += s + '<br>';
+    document.getElementById('display').innerHTML += JSON.stringify(s) + '<br>';
     console.log(s);
   }  
 
@@ -40,11 +40,12 @@ class Graph {
       var key = this.neighbors[vertexKey].indexOf(u);
       this.neighbors[vertexKey].splice(key,1);
     }
+    delete this.neighbors[u];
   }
 
   shortestPath(source, target) {
     if (source == target) {    // Delete these four lines if
-        //this.print(source);  // you want to look for a cycle
+        this.print(source);    // you want to look for a cycle
         return;                // when the source is equal to
     }                          // the target.
 
