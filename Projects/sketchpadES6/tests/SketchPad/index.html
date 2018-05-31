@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>SketchPad Test Inheritance in ES6 Syntax</title>
+  </head>
+  <body>
+    <script src="Graph.js"></script>
+    <script src="SketchPad.js"></script>
+    <div id="display"></div>
+    <script> 
+
+    let x = 0, y = 0, canvas = {height:3, width:3}, 
+      pencilThickness = 1,
+      right = x + pencilThickness,
+      left  = x - pencilThickness, 
+      down  = y + pencilThickness, 
+      up    = y - pencilThickness;
+
+    const G = new SketchPad();
+    /*
+                A   ,   B   ,  C 
+            A (0,0)  (1,0)   (2,0)
+            B (0,1)  (1,1)   (2,1)
+            C (0,2)  (1,2)   (2,2)
+    */
+    
+    // along first row
+
+    for (var j = 0; j < canvas.height - 1; j++) {
+      for ( var i = 1; i < canvas.width; i++) {
+        G.addEdge({x:(i-1), y:j}, {x:i, y:j});
+        G.addEdge({x:(i-1), y:j}, {x:i, y:(j+1)})
+      }
+    }
+
+
+
+    G.print(G.neighbors);
+    G.testPrint();
+
+    </script>
+  </body>
+</html>

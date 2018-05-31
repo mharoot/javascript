@@ -1,0 +1,22 @@
+<html>
+    <head>
+            <title>Shortest Path Test1</title>
+    </head>
+    <body>
+        
+        <script src="Graph.js"></script>
+        <div id="display"></div>
+        <script> 
+            const G = new Graph();
+            G.print(G.neighbors);
+            G.addEdge('A', 'B');
+            G.addEdge('A', 'C');
+            G.addEdge('B', 'C');
+            G.print(G.neighbors);
+            // G.deleteVertex('A');
+            G.print(G.neighbors);
+            G.shortestPath('A', 'C');
+        </script>
+
+    </body>
+</html>
